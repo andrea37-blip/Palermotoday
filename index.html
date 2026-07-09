@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorpresa!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0f19;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        /* Stile del pulsante iniziale */
+        .btn-magic {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-magic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(255, 65, 108, 0.6);
+        }
+
+        .btn-magic:active {
+            transform: scale(0.98);
+        }
+
+        /* Messaggio finale (nascosto all'inizio) */
+        .insulto {
+            display: none;
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff3333;
+            text-shadow: 0 0 20px rgba(255, 51, 51, 0.6);
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* Sottotitolo ironico */
+        .sottotitolo {
+            display: none;
+            font-size: 1.2rem;
+            color: #8892b0;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        /* Animazioni */
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Bottone da cliccare -->
+        <button id="magicBtn" class="btn-magic">Clicca per una sorpresa</button>
+
+        <!-- Messaggi nascosti -->
+        <h1 id="messaggio" class="insulto">MA VAFFANCULO! 🖕</h1>
+        <p id="sub" class="sottotitolo">Con affetto dal tuo browser.</p>
+    </div>
+
+    <script>
+        const btn = document.getElementById('magicBtn');
+        const messaggio = document.getElementById('messaggio');
+        const sub = document.getElementById('sub');
+
+        btn.addEventListener('click', () => {
+            // Nasconde il pulsante
+            btn.style.display = 'none';
+            
+            // Cambia lo sfondo per renderlo più "aggressivo"
+            document.body.style.backgroundColor = '#1a0505';
+            
+            // Mostra il vaffanculo con l'animazione
+            messaggio.style.display = 'block';
+            sub.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
